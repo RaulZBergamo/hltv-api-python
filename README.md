@@ -6,4 +6,4 @@ A simple unoficcial Api to return data from matches, players, news...
 
 - Matches
     - All
-        Endpoint to retrieve data from all today Matches
+        - Endpoint to retrieve data from all today Matches
