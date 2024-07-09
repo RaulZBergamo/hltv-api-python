@@ -4,8 +4,8 @@ Test the MatchService class
 
 import unittest
 from unittest.mock import patch
-from app.services.match_service import MatchService
-from app.helper.selenium_helper import SeleniumHelper
+from services.match_service import MatchService
+from helper.selenium_helper import SeleniumHelper
 
 class TestMatchService(unittest.TestCase):
     """
