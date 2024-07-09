@@ -36,12 +36,12 @@ class Player():
 
         if not isinstance(self.trophies, list):
             raise TypeError("Trophies must be a list")
-        
+
         self.social = kwargs.get("social", [])
 
         if not isinstance(self.social, list):
             raise TypeError("Social must be a list")
-        
+
     def add_trophy(self, trophy: str) -> None:
         """
         Adds a new trophy to the player's list of trophies.

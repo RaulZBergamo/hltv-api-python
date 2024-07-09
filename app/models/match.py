@@ -32,9 +32,11 @@ class Match:
         self.away_team = kwargs["away_team"]
         self.home_score = kwargs["home_score"]
         self.away_score = kwargs["away_score"]
-        self.state = kwargs["state"]
-        self.match_date = kwargs["match_date"]
         self.tournament = kwargs["tournament"]
+        self.match_details = {
+            "state": kwargs["state"],
+            "match_date": kwargs["match_date"],
+        }
 
     def is_finished(self) -> bool:
         """
@@ -43,7 +45,7 @@ class Match:
         Returns:
             bool: True if the match is finished, False otherwise.
         """
-        return self.state.lower() in ["finished", "completed"]
+        return self.match_details["state"].lower() in ["finished", "completed"]
 
     def __repr__(self) -> str:
         return f"{self.home_team} {self.home_score} X {self.away_score} {self.away_team}"
