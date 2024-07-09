@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
-from helper.selenium_helper import SeleniumHelper
+from app.helper.selenium_helper import SeleniumHelper
 
 class SeleniumHelperTests(unittest.TestCase):
     """
