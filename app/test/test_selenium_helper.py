@@ -2,10 +2,6 @@
 Module to test the SeleniumHelper class
 """
 
-import sys
-
-sys.path.append("./app/")
-
 import unittest
 from webdriver_manager import chrome
 from selenium import webdriver

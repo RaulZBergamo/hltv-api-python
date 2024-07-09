@@ -5,7 +5,7 @@ Classes:
     Player: Represents a player with a name, trophies, age, team, and social media links.
 """
 
-from typing import List
+from typing import Dict, Any
 
 class Player():
     """
@@ -26,22 +26,22 @@ class Player():
         add_social() -> None: Adds a new Social.
     """
 
-    def __init__(
-        self,
-        player_id: str,
-        name: str,
-        trophies: List[str], 
-        age: str,
-        team: str, 
-        social: List[str]
-    ) -> None:
-        self.player_id = player_id
-        self.name = name
-        self.trophies = trophies
-        self.age = age
-        self.team = team
-        self.social = social
+    def __init__(self, **kwargs: Dict[str, Any]) -> None:
+        self.player_id = kwargs["player_id"]
+        self.name = kwargs["name"]
+        self.team = kwargs["team"]
+        self.age = kwargs["age"]
 
+        self.trophies = kwargs.get("trophies", [])
+
+        if not isinstance(self.trophies, list):
+            raise TypeError("Trophies must be a list")
+        
+        self.social = kwargs.get("social", [])
+
+        if not isinstance(self.social, list):
+            raise TypeError("Social must be a list")
+        
     def add_trophy(self, trophy: str) -> None:
         """
         Adds a new trophy to the player's list of trophies.

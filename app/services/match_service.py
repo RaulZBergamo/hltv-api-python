@@ -48,6 +48,6 @@ class MatchService:
         )
 
         return []
-    
+
     def __del__(self) -> None:
         self.driver.quit()

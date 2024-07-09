@@ -5,8 +5,7 @@ Classes:
     Match: Represents a match with a home team, away team, score, state, date, and tournament.
 """
 
-from datetime import date
-from models.team import Team
+from typing import Dict, Any
 
 class Match:
     """
@@ -27,25 +26,15 @@ class Match:
     is_finished() -> bool: Checks if the match has finished
     """
 
-    def __init__(
-        self,
-        match_id: str,
-        home_team: Team, 
-        away_team: Team,
-        home_score: int,
-        away_sore: int,
-        state: str,
-        match_date: date,
-        tournament: str
-    ) -> None:
-        self.match_id = match_id
-        self.home_team = home_team
-        self.away_team = away_team
-        self.home_score = home_score
-        self.away_score = away_sore
-        self.state = state
-        self.match_date = match_date
-        self.tournament = tournament
+    def __init__(self, **kwargs: Dict[str, Any]) -> None:
+        self.match_id = kwargs["match_id"]
+        self.home_team = kwargs["home_team"]
+        self.away_team = kwargs["away_team"]
+        self.home_score = kwargs["home_score"]
+        self.away_score = kwargs["away_score"]
+        self.state = kwargs["state"]
+        self.match_date = kwargs["match_date"]
+        self.tournament = kwargs["tournament"]
 
     def is_finished(self) -> bool:
         """
