@@ -19,7 +19,10 @@ class SeleniumHelper:
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument(f"user-agent={config.USER_AGENT}")
 
-        return webdriver.Chrome(service=Service(chrome.ChromeDriverManager().install()), options=chrome_options)
+        return webdriver.Chrome(
+            service=Service(chrome.ChromeDriverManager().install()), 
+            options=chrome_options
+        )
 
     @staticmethod
     def wait_for_element(driver: webdriver.Chrome, by: By, value: str, timeout: int = 10) -> None:
