@@ -50,7 +50,8 @@ class SeleniumHelper:
     @staticmethod
     def wait_for_element(driver: webdriver.Chrome, by: By, value: str, timeout: int = 10) -> None:
         """
-        This method waits for a specific element to be present on the page within a given timeout period.
+        This method waits for a specific element to be present on the page
+        within a given timeout period.
 
         Args:
             driver (webdriver.Chrome): An instance of Chrome WebDriver.

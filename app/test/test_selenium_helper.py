@@ -2,10 +2,6 @@
 Module to test the SeleniumHelper class
 """
 
-import sys
-
-sys.path.append("./app/")
-
 import unittest
 from webdriver_manager import chrome
 from selenium import webdriver
@@ -29,7 +25,7 @@ class SeleniumHelperTests(unittest.TestCase):
             service=Service(chrome.ChromeDriverManager().install()),
             options=chrome_options
         )
-        
+
     def tearDown(self):
         self.driver.quit()
 

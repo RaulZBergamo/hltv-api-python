@@ -2,10 +2,6 @@
 Test the MatchService class
 """
 
-import sys
-
-sys.path.append("./app/")
-
 import unittest
 from unittest.mock import patch
 from services.match_service import MatchService

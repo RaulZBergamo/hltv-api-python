@@ -5,8 +5,7 @@ Classes:
     Match: Represents a match with a home team, away team, score, state, date, and tournament.
 """
 
-from datetime import date
-from models.team import Team
+from typing import Dict, Any
 
 class Match:
     """
@@ -27,25 +26,17 @@ class Match:
     is_finished() -> bool: Checks if the match has finished
     """
 
-    def __init__(
-        self,
-        match_id: str,
-        home_team: Team, 
-        away_team: Team,
-        home_score: int,
-        away_sore: int,
-        state: str,
-        match_date: date,
-        tournament: str
-    ) -> None:
-        self.match_id = match_id
-        self.home_team = home_team
-        self.away_team = away_team
-        self.home_score = home_score
-        self.away_score = away_sore
-        self.state = state
-        self.match_date = match_date
-        self.tournament = tournament
+    def __init__(self, **kwargs: Dict[str, Any]) -> None:
+        self.match_id = kwargs["match_id"]
+        self.home_team = kwargs["home_team"]
+        self.away_team = kwargs["away_team"]
+        self.home_score = kwargs["home_score"]
+        self.away_score = kwargs["away_score"]
+        self.tournament = kwargs["tournament"]
+        self.match_details = {
+            "state": kwargs["state"],
+            "match_date": kwargs["match_date"],
+        }
 
     def is_finished(self) -> bool:
         """
@@ -54,7 +45,7 @@ class Match:
         Returns:
             bool: True if the match is finished, False otherwise.
         """
-        return self.state.lower() in ["finished", "completed"]
+        return self.match_details["state"].lower() in ["finished", "completed"]
 
     def __repr__(self) -> str:
         return f"{self.home_team} {self.home_score} X {self.away_score} {self.away_team}"
