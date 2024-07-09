@@ -3,6 +3,9 @@ Module to test the SeleniumHelper class
 """
 
 import sys
+
+sys.path.append("./app/")
+
 import unittest
 from webdriver_manager import chrome
 from selenium import webdriver
@@ -10,8 +13,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from helper.selenium_helper import SeleniumHelper
-
-sys.path.append("./app/")
 
 class SeleniumHelperTests(unittest.TestCase):
     """
