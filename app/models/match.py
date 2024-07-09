@@ -1,18 +1,60 @@
-from models.team import Team
+"""
+This module represents a Match entity.
+
+Classes:
+    Match: Represents a match with a home team, away team, score, state, date, and tournament.
+"""
+
 from datetime import date
-format
+from models.team import Team
 
 class Match:
-    
-    def __init__(self, id: str, home_team: Team, away_team: Team, home_score: int, away_sore: int, state: str, date: date, tournament: str) -> None:
-        self.id = id
+    """
+    This class represents a Match entity.
+
+    Attributes:
+        match_id (str): The ID of the match.
+        home_team (Team): The home team.
+        away_team (Team): The away team.
+        home_score (int): The score of the home team.
+        away_score (int): The score of the away team.
+        state (str): The state of the match.
+        match_date (date): The date of the match.
+        tournament (str): The tournament of the match.
+
+    Methods
+
+    is_finished() -> bool: Checks if the match has finished
+    """
+
+    def __init__(
+        self,
+        match_id: str,
+        home_team: Team, 
+        away_team: Team,
+        home_score: int,
+        away_sore: int,
+        state: str,
+        match_date: date,
+        tournament: str
+    ) -> None:
+        self.match_id = match_id
         self.home_team = home_team
         self.away_team = away_team
         self.home_score = home_score
         self.away_score = away_sore
         self.state = state
-        self.date = date
+        self.match_date = match_date
         self.tournament = tournament
-        
+
+    def is_finished(self) -> bool:
+        """
+        Checks if the match has finished.
+
+        Returns:
+            bool: True if the match is finished, False otherwise.
+        """
+        return self.state.lower() in ["finished", "completed"]
+
     def __repr__(self) -> str:
-        return f"Match ID: {self.id}\nHome Team: {self.home_team}\nAway Team: {self.away_team}\nHome Score: {self.home_score}\nAway Score: {self.away_score}\nState: {self.state}\nDate: {self.date}\nTournament: {self.tournament}"
+        return f"{self.home_team} {self.home_score} X {self.away_score} {self.away_team}"
