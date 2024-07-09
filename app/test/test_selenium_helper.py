@@ -22,6 +22,7 @@ class SeleniumHelperTests(unittest.TestCase):
             service=Service(chrome.ChromeDriverManager().install()), 
             options=chrome_options
         )
+        
     def tearDown(self):
         self.driver.quit()
 
