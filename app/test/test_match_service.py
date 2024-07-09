@@ -3,12 +3,13 @@ Test the MatchService class
 """
 
 import sys
+
+sys.path.append("./app/")
+
 import unittest
 from unittest.mock import patch
 from services.match_service import MatchService
 from helper.selenium_helper import SeleniumHelper
-
-sys.path.append("./app/")
 
 class TestMatchService(unittest.TestCase):
     """
