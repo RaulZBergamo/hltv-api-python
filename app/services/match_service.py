@@ -34,5 +34,5 @@ class MatchService:
 
         SeleniumHelper.wait_for_element(self.driver, By.XPATH, "//div[contains(text(), 'All matches')]")
 
-        print()
+        return (None, None, None)
         
